@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.android_food_review.Quan;
+import com.example.android_food_review.models.Quan;
 import com.example.android_food_review.R;
 
 import java.util.ArrayList;

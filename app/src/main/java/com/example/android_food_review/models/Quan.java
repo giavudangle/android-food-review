@@ -1,4 +1,4 @@
-package com.example.android_food_review;
+package com.example.android_food_review.models;
 
 public class Quan {
     public Integer  _id;
