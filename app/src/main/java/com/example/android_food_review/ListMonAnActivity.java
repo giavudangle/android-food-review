@@ -2,11 +2,14 @@ package com.example.android_food_review;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -46,6 +49,22 @@ public class ListMonAnActivity extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_add_review,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.add_review_menu:
+                Intent i  = new Intent(getApplicationContext(),AddReviewActivity.class);
+                startActivity(i);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void navigateToChiTietMonAn() {

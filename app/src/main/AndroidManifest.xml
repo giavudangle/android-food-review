@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".ListMonAnActivity" android:label=""/>
         <activity android:name=".ChiTietMonAnActivity"/>
+        <activity android:name=".AddReviewActivity"/>
     </application>
 
 </manifest>
