@@ -6,6 +6,7 @@ public class MonAn {
     private String diaChi;
     private Integer maQuan;
     private Long gia;
+    private byte[] image;
 
     public Integer getMaQuan() {
         return maQuan;
@@ -24,7 +25,7 @@ public class MonAn {
         this.maQuan = maQuan;
     }
 
-    private byte[] image;
+
 
     public MonAn(Integer _id, String tenMonAn, String diaChi, Long gia) {
         this._id = _id;
