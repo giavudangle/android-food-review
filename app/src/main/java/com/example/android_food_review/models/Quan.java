@@ -11,4 +11,8 @@ public class Quan {
         this.soLuongMon=soLuongMon;
     }
 
+    public Quan(String tenQuan, int soLuongMon) {
+        this.tenQuan = tenQuan;
+        this.soLuongMon=soLuongMon;
+    }
 }

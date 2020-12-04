@@ -1,8 +1,12 @@
 package com.example.android_food_review;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ListView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -30,5 +34,20 @@ public class ChiTietMonAnActivity extends AppCompatActivity {
         listViewReview = findViewById(R.id.lv_review_chitiet_monan);
         listViewReview.setAdapter(reviewAdapter);
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_add_review,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.add_review_menu:
+                Intent i  = new Intent(getApplicationContext(),AddReviewActivity.class);
+                startActivity(i);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

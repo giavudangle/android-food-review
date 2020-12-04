@@ -4,15 +4,20 @@ public class MonAn {
     private Integer _id;
     private String tenMonAn;
     private String diaChi;
+
+    public void setMaQuan(Integer maQuan) {
+        this.maQuan = maQuan;
+    }
+
     private Integer maQuan;
-    private Long gia;
+    private Integer gia;
     private byte[] image;
 
     public Integer getMaQuan() {
         return maQuan;
     }
 
-    public MonAn(Integer _id, String tenMonAn, String diaChi, Integer maQuan, Long gia, byte[] image) {
+    public MonAn(Integer _id, String tenMonAn, String diaChi, Integer maQuan, Integer gia, byte[] image) {
         this._id = _id;
         this.tenMonAn = tenMonAn;
         this.diaChi = diaChi;
@@ -21,19 +26,13 @@ public class MonAn {
         this.image = image;
     }
 
-    public void setMaQuan(Integer maQuan) {
-        this.maQuan = maQuan;
-    }
-
-
-
-    public MonAn(Integer _id, String tenMonAn, String diaChi, Long gia) {
-        this._id = _id;
+    public MonAn(String tenMonAn, String diaChi, Integer maQuan, Integer gia, byte[] image) {
         this.tenMonAn = tenMonAn;
         this.diaChi = diaChi;
+        this.maQuan = maQuan;
         this.gia = gia;
+        this.image = image;
     }
-
 
 
     public Integer get_id() {
@@ -60,13 +59,14 @@ public class MonAn {
         this.diaChi = diaChi;
     }
 
-    public Long getGia() {
+    public Integer getGia() {
         return gia;
     }
 
-    public void setGia(Long gia) {
+    public void setGia(Integer gia) {
         this.gia = gia;
     }
+
     public byte[] getImage() {
         return image;
     }

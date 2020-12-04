@@ -11,31 +11,32 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.android_food_review.adapter.QuanAdapter;
-import com.example.android_food_review.helpers.QuanDbManager;
+import com.example.android_food_review.controllers.QuanController;
 import com.example.android_food_review.models.Quan;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<Quan> listQuan;
     QuanAdapter quanAdapter ;
     ListView listView;
-    QuanDbManager quanDbManager;
+    QuanController quanController;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        quanDbManager = new QuanDbManager(this);
-        //initalDataForQuan(); -> Chỉ chạy lần đầu để thêm các quận vào DB
 
-        listQuan = new ArrayList<>();
-        getDataQuan(); // Lấy data từ db
+        quanController = new QuanController(this);
+
+        //initalDataForQuan(); //-> Chỉ chạy lần đầu để thêm các quận vào DB
+
+        getDataQuan();
         quanAdapter = new QuanAdapter(listQuan);
 
         listView = findViewById(R.id.lv_quan);
         listView.setAdapter(quanAdapter);
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -44,24 +45,30 @@ public class MainActivity extends AppCompatActivity {
                 // Gửi ID quận qua activity list để có thể truy vấn lấy danh sách món ăn theo quận ( khoá là mã quận )
                 intent.putExtra("ID_quan",quan._id);
                 startActivity(intent);
-//                Toast.makeText(getApplicationContext(),"Click quan =>  " + quan.tenQuan,Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Click quan =>  " + quan.tenQuan,Toast.LENGTH_SHORT).show();
             }
         });
     }
 
 
     private void initalDataForQuan(){
-//        quanDbManager.insertQuan(new Quan(2,"Quận 2",20));
-//        quanDbManager.insertQuan(new Quan(3,"Quận 3",30));
-//        quanDbManager.insertQuan(new Quan(4,"Quận 4",5));
-//        quanDbManager.insertQuan(new Quan(5,"Quận 5",24));
-//        quanDbManager.insertQuan(new Quan(6,"Quận 6",99));
-//        quanDbManager.insertQuan(new Quan(11,"Quận Bình Thạnh",154));
-//        quanDbManager.insertQuan(new Quan(12,"Quận Thủ Đức",152));
+        quanController.insertQuan(new Quan("Quận 1",10));
+        quanController.insertQuan(new Quan("Quận 2",20));
+        quanController.insertQuan(new Quan("Quận 3",30));
+        quanController.insertQuan(new Quan("Quận 4",5));
+        quanController.insertQuan(new Quan("Quận 5",52));
+        quanController.insertQuan(new Quan("Quận 6",15));
+        quanController.insertQuan(new Quan("Quận 7",45));
+        quanController.insertQuan(new Quan("Quận Bình Thạnh",115));
+        quanController.insertQuan(new Quan("Quận Thủ Đức ",53));
+        quanController.insertQuan(new Quan("Quận Tân Phú ",24));
+        quanController.insertQuan(new Quan("Quận Bình Tân ",60));
+
     }
 
     private void getDataQuan(){
+        listQuan = new ArrayList<>();
         listQuan.clear();
-        listQuan.addAll(quanDbManager.getAllQuan());
+        listQuan.addAll(quanController.getAllQuan());
     }
 }

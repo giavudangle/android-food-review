@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android_food_review">
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -9,15 +10,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" >
+        <activity android:name=".MainActivity" android:label="DANH SÁCH QUẬN">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER"/>
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ListMonAnActivity" android:label=""/>
+        <activity android:name=".ListMonAnActivity" android:label="">
+
+        </activity>
         <activity android:name=".ChiTietMonAnActivity"/>
         <activity android:name=".AddReviewActivity"/>
+        <activity android:name=".AddMonAnActivity">
+
+        </activity>
+
     </application>
 
 </manifest>
