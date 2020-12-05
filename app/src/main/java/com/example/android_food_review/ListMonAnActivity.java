@@ -30,6 +30,7 @@ public class ListMonAnActivity extends AppCompatActivity {
 
     MonAnController monAnController;
 
+    Integer maQuan;
 
 
 
@@ -46,9 +47,28 @@ public class ListMonAnActivity extends AppCompatActivity {
         monAnAdapter = new MonAnAdapter(monAnArrayList);
         mListMonAn.setAdapter(monAnAdapter);
 
+        Intent i = getIntent();
+        maQuan=i.getIntExtra("ID_quan",0);
 
-        // ***
-        Cursor cursor = monAnController.getData("SELECT * FROM MONAN");
+
+        GetListMonAns();
+        monAnAdapter.notifyDataSetChanged();
+
+        mListMonAn.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getApplicationContext(),ChiTietMonAnActivity.class);
+                MonAn monAn = (MonAn) monAnAdapter.getItem(i);
+                intent.putExtra("ID_MONAN",monAn.get_id());
+                startActivity(intent);
+                Toast.makeText(getApplicationContext(),"Chọn món =>  " + monAn.getTenMonAn(),Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void GetListMonAns(){
+        // Đem qua activity để dùng Adapter NotifyDataSetChanged
+        Cursor cursor = monAnController.getData("SELECT * FROM MONAN WHERE QUAN = " + maQuan.toString());
         monAnArrayList.clear();
         while(cursor.moveToNext()){
             int id = cursor.getInt(0);
@@ -60,44 +80,13 @@ public class ListMonAnActivity extends AppCompatActivity {
 
             monAnArrayList.add(new MonAn(id,name,address,quan,price,image));
         }
-        monAnAdapter.notifyDataSetChanged();
-
-        mListMonAn.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                navigateToChiTietMonAn();
-                MonAn monAn = (MonAn) monAnAdapter.getItem(i);
-                Toast.makeText(getApplicationContext(),"Click quan =>  " + monAn.getTenMonAn(),Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_add_monan,menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId()){
-            case R.id.add_monan_menu:
-                Intent i  = new Intent(getApplicationContext(),AddMonAnActivity.class);
-                startActivity(i);
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
 
-    private void navigateToChiTietMonAn() {
-        Intent intent = new Intent(getApplicationContext(),ChiTietMonAnActivity.class);
-        startActivity(intent);
-    }
 
-    private void getDataMonAn(){
-        monAnArrayList.clear();
-        monAnArrayList.addAll(monAnController.getAllMonAn());
-    }
+
+
 }

@@ -2,11 +2,14 @@ package com.example.android_food_review;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -30,7 +33,9 @@ public class MainActivity extends AppCompatActivity {
 
         quanController = new QuanController(this);
 
+        /* QUAN TRỌNG */
         //initalDataForQuan(); //-> Chỉ chạy lần đầu để thêm các quận vào DB
+        /*NẾU KO COMMENT LẠI Ở LẦN CHẠY THỨ 2 THÌ SẼ INSERT NHIỀU LẦN*/
 
         getDataQuan();
         quanAdapter = new QuanAdapter(listQuan);
@@ -59,6 +64,11 @@ public class MainActivity extends AppCompatActivity {
         quanController.insertQuan(new Quan("Quận 5",52));
         quanController.insertQuan(new Quan("Quận 6",15));
         quanController.insertQuan(new Quan("Quận 7",45));
+        quanController.insertQuan(new Quan("Quận 8",45));
+        quanController.insertQuan(new Quan("Quận 9",45));
+        quanController.insertQuan(new Quan("Quận 10",145));
+        quanController.insertQuan(new Quan("Quận 11",55));
+        quanController.insertQuan(new Quan("Quận 12",15));
         quanController.insertQuan(new Quan("Quận Bình Thạnh",115));
         quanController.insertQuan(new Quan("Quận Thủ Đức ",53));
         quanController.insertQuan(new Quan("Quận Tân Phú ",24));
@@ -71,4 +81,22 @@ public class MainActivity extends AppCompatActivity {
         listQuan.clear();
         listQuan.addAll(quanController.getAllQuan());
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_add_monan,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.add_monan_menu:
+                Intent i = new Intent(getApplicationContext(), AddMonAnActivity.class);
+                startActivity(i);
+                finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
 }

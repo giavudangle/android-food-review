@@ -56,6 +56,7 @@ public class MonAnAdapter extends BaseAdapter {
 
         ((TextView) viewMonAn.findViewById(R.id.ten_mon)).setText(String.format("%s",monAn.getTenMonAn()));
         ((TextView) viewMonAn.findViewById(R.id.diachi_mon)).setText(String.format("%s ",monAn.getDiaChi()));
+        ((TextView) viewMonAn.findViewById(R.id.txt_giamon_listmonan)).setText(String.format("%d VND ",monAn.getGia()));
        byte[] foodImage = monAn.getImage();
 
        Bitmap bitmap = BitmapFactory.decodeByteArray(foodImage,0,foodImage.length);

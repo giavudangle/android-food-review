@@ -13,6 +13,7 @@
         android:ems="10"
         android:hint="Tên món ăn"
         android:inputType="textPersonName"
+        android:textColor="@android:color/background_dark"
         app:layout_constraintBottom_toTopOf="@+id/guideline28"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,8 +66,8 @@
 
     <Spinner
         android:id="@+id/spinnerListQuan_AddMonAn"
-        android:layout_width="190dp"
-        android:layout_height="46dp"
+        android:layout_width="210dp"
+        android:layout_height="52dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline32"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline31"
@@ -96,7 +97,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="285dp" />
+        app:layout_constraintGuide_begin="286dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline33"
@@ -110,7 +111,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="510dp" />
+        app:layout_constraintGuide_begin="528dp" />
 
     <ImageView
         android:id="@+id/image_choose_addmonan"
@@ -140,19 +141,12 @@
         android:id="@+id/btnAddMonAn"
         android:layout_width="121dp"
         android:layout_height="65dp"
+        android:background="@android:color/holo_green_light"
         android:text="THÊM MÓN"
         app:layout_constraintBottom_toTopOf="@+id/guideline34"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline33" />
+        app:layout_constraintTop_toTopOf="@+id/guideline33"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/btnNavigateHome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline34" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,19 +10,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" android:label="DANH SÁCH QUẬN">
+        <activity android:name=".MainActivity" android:label="@string/quan_activity_label" >
+
+        </activity>
+        <activity android:label="@string/listmonan_activity_label" android:name=".ListMonAnActivity" >
+
+        </activity>
+        <activity android:label="@string/chitietmonan_activity_label"  android:name=".ChiTietMonAnActivity"/>
+        <activity android:label="@string/themreview_activity_label" android:name=".AddReviewActivity"/>
+        <activity android:label="@string/themmonan_activity_label" android:name=".AddMonAnActivity">
+
+        </activity>
+        <activity android:label="" android:name=".ChaoMungActivity">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER"/>
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
-        </activity>
-        <activity android:name=".ListMonAnActivity" android:label="">
-
-        </activity>
-        <activity android:name=".ChiTietMonAnActivity"/>
-        <activity android:name=".AddReviewActivity"/>
-        <activity android:name=".AddMonAnActivity">
-
         </activity>
 
     </application>

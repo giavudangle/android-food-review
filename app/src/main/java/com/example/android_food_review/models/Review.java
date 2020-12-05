@@ -5,14 +5,29 @@ public class Review {
     private Integer idMonAn;
     private String tenNguoiReview;
     private String noiDungReview;
-    private Integer soSaoReview;
+    private byte[] imageReview;
 
-    public Review(Integer _id, Integer idMonAn, String tenNguoiReview, String noiDungReview, Integer soSaoReview) {
+    public Review(Integer idMonAn, String tenNguoiReview, String noiDungReview, byte[] imageReview) {
+        this.idMonAn = idMonAn;
+        this.tenNguoiReview = tenNguoiReview;
+        this.noiDungReview = noiDungReview;
+        this.imageReview = imageReview;
+    }
+
+    public byte[] getImageReview() {
+        return imageReview;
+    }
+
+    public void setImageReview(byte[] imageReview) {
+        this.imageReview = imageReview;
+    }
+
+    public Review(Integer _id, Integer idMonAn, String tenNguoiReview, String noiDungReview, byte[] imageReview) {
         this._id = _id;
         this.idMonAn = idMonAn;
         this.tenNguoiReview = tenNguoiReview;
         this.noiDungReview = noiDungReview;
-        this.soSaoReview = soSaoReview;
+        this.imageReview = imageReview;
     }
 
     public Integer get_id() {
@@ -47,11 +62,5 @@ public class Review {
         this.noiDungReview = noiDungReview;
     }
 
-    public Integer getSoSaoReview() {
-        return soSaoReview;
-    }
 
-    public void setSoSaoReview(Integer soSaoReview) {
-        this.soSaoReview = soSaoReview;
-    }
 }

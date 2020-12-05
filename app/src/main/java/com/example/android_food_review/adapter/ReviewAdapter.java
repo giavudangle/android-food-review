@@ -1,8 +1,11 @@
 package com.example.android_food_review.adapter;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -46,8 +49,9 @@ public class ReviewAdapter extends BaseAdapter {
         Review review =  (Review)getItem(i);
         ((TextView) viewReview.findViewById(R.id.txtTenNguoiReview)).setText(String.format("%s",review.getTenNguoiReview()));
         ((TextView) viewReview.findViewById(R.id.txtLoiReview)).setText(String.format("%s",review.getNoiDungReview()));
-        ((RatingBar) viewReview.findViewById(R.id.ratingBarAddReview)).setRating(review.getSoSaoReview());
-
+        byte[] reviewImage = review.getImageReview();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(reviewImage,0,reviewImage.length);
+        ((ImageView) viewReview.findViewById(R.id.img_review)).setImageBitmap(bitmap);
 
         return viewReview;
     }

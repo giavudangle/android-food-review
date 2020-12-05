@@ -39,7 +39,7 @@ public class MonAnController {
     public MonAnController(Context context){
         this.mContext = context;
         mHelper  = new DBHelper(context);
-        // Mở kết nối đến Database thông qua đối tượng mH
+        // Mở kết nối đến Database thông qua đối tượng mHelper
         try {
             openDatabase();
         } catch (SQLException e){
@@ -48,23 +48,6 @@ public class MonAnController {
         }
     }
 
-    public List<MonAn> getAllMonAn(){
-        List<MonAn> monAnList = new ArrayList<>();
-        Cursor cursor = mDatabase.rawQuery("SELECT * FROM " + DBHelper.TABLE_MONAN,null);
-        while(cursor.moveToFirst()){
-            int monAnId = cursor.getInt(0);
-            String tenMonAn = cursor.getString(1);
-            String diaChi = cursor.getString(2);
-            Integer gia = cursor.getInt(3);
-            byte[] image = cursor.getBlob(4);
-            Integer maQuan =cursor.getInt(5);
-            MonAn temp = new MonAn(monAnId,tenMonAn,diaChi,maQuan,gia,image);
-            monAnList.add(temp);
-        }
-
-        cursor.close();
-        return monAnList;
-    }
 
     public Cursor getData(String sql){
         return mDatabase.rawQuery(sql,null);
@@ -89,6 +72,29 @@ public class MonAnController {
         sqLiteStatement.bindLong(5,monAn.getMaQuan());
 
         sqLiteStatement.executeInsert();
+    }
+
+
+
+    public MonAn getMonById(Integer idParam){
+
+        MonAn monAn = null;
+
+        Cursor cursor = mDatabase.rawQuery("SELECT * FROM " + DBHelper.TABLE_MONAN + " WHERE " + DBHelper.MONAN_ID + " =?",new String[]{idParam.toString() +""});
+        if(cursor.getCount() > 0){
+            cursor.moveToFirst();
+            Integer id = cursor.getInt(0);
+            String ten = cursor.getString(1);
+            String diachi = cursor.getString(2);
+            Integer gia = cursor.getInt(3);
+            byte[] image = cursor.getBlob(4);
+            Integer maQuan = cursor.getInt(5);
+
+             monAn = new MonAn(id,ten,diachi,maQuan,gia,image);
+        }
+        cursor.close();
+        return monAn;
+
     }
 
 }

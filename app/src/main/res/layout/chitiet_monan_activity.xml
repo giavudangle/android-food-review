@@ -15,7 +15,7 @@
         app:layout_constraintGuide_begin="154dp" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/img_ChiTiet"
         android:layout_width="410dp"
         android:layout_height="154dp"
         android:layout_marginBottom="10dp"
@@ -50,15 +50,8 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="240dp" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="288dp" />
-
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/txtTenMon_Chitiet"
         android:layout_width="334dp"
         android:layout_height="35dp"
         android:text="Gà Rán KFC"
@@ -70,7 +63,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline17" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/txtGia_Chitiet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="120000VND"
@@ -84,7 +77,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/txtDiaChi_Chitiet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="67 Nguyễn Duy Dương"
@@ -98,30 +91,19 @@
         app:layout_constraintTop_toTopOf="@+id/guideline19"
         app:layout_constraintVertical_bias="1.0" />
 
-    <RatingBar
-        android:id="@+id/ratingBar"
-        android:layout_width="245dp"
-        android:layout_height="43dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline21"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.234"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline20"
-        app:layout_constraintVertical_bias="0.4" />
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="341dp" />
+        app:layout_constraintGuide_begin="280dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="711dp" />
+        app:layout_constraintGuide_begin="732dp" />
 
     <TextView
         android:id="@+id/textView13"
@@ -137,12 +119,12 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline25"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline21" />
+        app:layout_constraintTop_toTopOf="@+id/guideline20" />
 
     <ListView
         android:id="@+id/lv_review_chitiet_monan"
-        android:layout_width="410dp"
-        android:layout_height="394dp"
+        android:layout_width="407dp"
+        android:layout_height="413dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline27"
         app:layout_constraintEnd_toEndOf="parent"

@@ -56,14 +56,6 @@ public class AddMonAnActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         spinnerQuan.setAdapter(adapter);
 
-        Button btn = findViewById(R.id.btnNavigateHome);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(),ListMonAnActivity.class);
-                startActivity(i);
-            }
-        });
 
         btnAddFood.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +89,13 @@ public class AddMonAnActivity extends AppCompatActivity {
                 );
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(i);
+        finish();
     }
 
     private byte[] imageViewToByteArray(ImageView imageView){

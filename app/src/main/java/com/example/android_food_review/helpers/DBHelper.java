@@ -19,7 +19,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final Integer DATABASE_VERSION= 1;
     public static Context scopeContext;
 
-    /*  QUẬN DEFINE CONST  */
+    /* ==================== QUẬN DEFINE CONST ============== */
     public static final String TABLE_QUAN = "QUAN";
     public static final String QUAN_ID = "_id";
     public static final String QUAN_TENQUAN = "ten_quan";
@@ -31,7 +31,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String dropTableQuan = "DROP TABLE IF EXISTS " + TABLE_QUAN;
     /*=================================================*/
 
-    /*  MÓN ĂN DEFINE CONST */
+    /* =================== MÓN ĂN DEFINE CONST ============= */
     public static final String TABLE_MONAN = "MONAN";
     public static final String MONAN_ID = "_id";
     public static final String MONAN_TENMONAN = "ten_mon";
@@ -54,6 +54,29 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String dropTableMonAn = "DROP TABLE IF EXISTS " + TABLE_MONAN;
     /*=================================================*/
 
+    /* =================== REVIEW DEFINE CONST ============= */
+    public static final String TABLE_REVIEW = "REVIEW";
+    public static final String REVIEW_ID = "_id";
+    public static final String REVIEW_TENNGUOIREVIEW= "ten_nguoi_review";
+    public static final String REVIEW_NOIDUNG = "noi_dung_review";
+    public static final String REVIEW_MONAN ="mon_an" ; //// khoá ngoại tham chiếu đếnn bảng MONAN
+    public static final String REVIEW_IMAGE= "image";
+
+
+    public static final String createTableReview ="CREATE TABLE " + TABLE_REVIEW + " ("
+            + REVIEW_ID + " integer primary key autoincrement ,"
+            + REVIEW_TENNGUOIREVIEW + " TEXT not null, "
+            + REVIEW_NOIDUNG + " TEXT not null, "
+            + REVIEW_IMAGE +" BLOB, "
+            + REVIEW_MONAN + " INTEGER not null, "
+            + "FOREIGN KEY " + "(" + REVIEW_MONAN + ")"
+            + " REFERENCES " +  TABLE_MONAN + "(" + MONAN_ID +")"
+            + ")";
+
+    public static final String dropTableReview = "DROP TABLE IF EXISTS " + TABLE_REVIEW;
+    /*=================================================*/
+
+
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -64,9 +87,11 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         Toast.makeText(scopeContext,"Created Table QUAN",Toast.LENGTH_SHORT).show();
         Toast.makeText(scopeContext,"Created Table MONAN",Toast.LENGTH_SHORT).show();
+        Toast.makeText(scopeContext,"Created Table REVIEW",Toast.LENGTH_SHORT).show();
 
         db.execSQL(createTableMonAn);
         db.execSQL(createTableQuan);
+        db.execSQL(createTableReview);
     }
 
     @Override
@@ -74,6 +99,7 @@ public class DBHelper extends SQLiteOpenHelper {
         //Xoá bảng cũ
         db.execSQL(dropTableMonAn);
         db.execSQL(dropTableQuan);
+        db.execSQL(dropTableReview);
         //Tiến hành tạo bảng mới
         onCreate(db);
     }

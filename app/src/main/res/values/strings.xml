@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">android-food-review</string>
+    <string name="app_name">FoodReview</string>
+    <string name="quan_activity_label">DANH SÁCH QUẬN</string>
+    <string name="listmonan_activity_label">DANH SÁCH MÓN ĂN</string>
+    <string name="chitietmonan_activity_label">CHI TIẾT MÓN </string>
+    <string name="themmonan_activity_label">THÊM MỚI MÓN ĂN</string>
+    <string name="themreview_activity_label">THÊM MỚI REVIEW</string>
 </resources>
